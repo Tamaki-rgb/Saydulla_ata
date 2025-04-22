@@ -171,6 +171,7 @@ h2 {
   padding: 20px;
   overflow-x: visible;    
 }
+/* === FIX: Карточки с анимацией и адаптивностью === */
 
 .card {
   position: relative;
@@ -178,10 +179,10 @@ h2 {
   max-width: calc(33.33% - 20px);
   height: 300px;
   perspective: 1000px;
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
@@ -205,6 +206,7 @@ h2 {
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
   transform-origin: center center;
+  backface-visibility: hidden;
 }
 
 .card:hover .card-inner {
@@ -222,18 +224,25 @@ h2 {
   overflow: hidden;
 }
 
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #d4af37;
+}
 
 .card-front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2px solid #d4af37;
 }
 
 .card-back {
+  transform: rotateY(180deg);
   background-color: #111;
   color: #d4af37;
-  transform: rotateY(180deg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,6 +251,8 @@ h2 {
   font-size: 16px;
   border: 2px solid #d4af37;
 }
+
+
 
 .footer-buttons {
   display: flex;
@@ -282,80 +293,4 @@ h2 {
     transform: translateY(0);
     opacity: 1;
   }
-}
-/* === Фикс для мобильных карточек === */
-.card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.card {
-  position: relative;
-  flex: 0 0 calc(33.33% - 20px);
-  max-width: calc(33.33% - 20px);
-  height: 300px;
-  perspective: 1000px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .card {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease;
-  transform-origin: center;
-  backface-visibility: hidden; /* важно */
-}
-
-
-.card-inner {
-  margin: 0 auto;
-}
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.card-front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  background-color: #111;
-  color: #d4af37;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  font-size: 16px;
-  border: 2px solid #d4af37;
-}
-.card:hover .card-inner {
-  transform: rotateY(180deg);
 }
