@@ -283,3 +283,13 @@ h2 {
     opacity: 1;
   }
 }
+/* === Фикс для мобильных карточек === */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner {
+  margin: 0 auto;
+}
