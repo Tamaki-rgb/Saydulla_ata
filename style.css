@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -110,52 +109,11 @@ h2 {
   margin-bottom: 10px;
 }
 
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin: 0 auto;
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
-
-.card {
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-}
-
-.card-inner {
-  transform-origin: center center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-   width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 5%;
-    box-sizing: border-box;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-}
-
 
 .calc-btn {
   padding: 10px;
@@ -203,6 +161,68 @@ h2 {
   color: #777;
 }
 
+.card-grid {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;      
+  gap: 20px;
+  padding: 20px;
+  overflow-x: visible;    
+}
+.card {
+  position: relative;
+  flex: 0 0 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 300px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  transform-origin: center center;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #111;
+  color: #d4af37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 16px;
+  border: 2px solid #d4af37;
+}
 
 
 
