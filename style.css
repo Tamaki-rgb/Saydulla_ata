@@ -171,32 +171,16 @@ h2 {
   padding: 20px;
   overflow-x: visible;    
 }
-/* === FIX: Карточки с анимацией и адаптивностью === */
-
 .card {
   position: relative;
   flex: 0 0 calc(33.33% - 20px);
   max-width: calc(33.33% - 20px);
-  height: 300px;
   perspective: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-}
-
-@media (max-width: 900px) {
-  .card {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+  height: 300px;
 }
 
 .card-inner {
@@ -206,7 +190,6 @@ h2 {
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
   transform-origin: center center;
-  backface-visibility: hidden;
 }
 
 .card:hover .card-inner {
@@ -224,15 +207,6 @@ h2 {
   overflow: hidden;
 }
 
-.card-front {
-  z-index: 2;
-  transform: rotateY(0deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #d4af37;
-}
-
 .card-front img {
   width: 100%;
   height: 100%;
@@ -246,7 +220,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 20px;
   font-size: 16px;
   border: 2px solid #d4af37;
@@ -294,57 +267,3 @@ h2 {
     opacity: 1;
   }
 }
-.card {
-  position: relative;
-  flex: 0 0 calc(33.33% - 20px);
-  max-width: calc(33.33% - 20px);
-  perspective: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  height: 300px;
-}
-
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease;
-  transform-origin: center center;
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  background-color: #111;
-  color: #d4af37;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  font-size: 16px;
-  border: 2px solid #d4af37;
-}
-
