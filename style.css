@@ -1,58 +1,74 @@
-/* Сброс стилей и базовые настройки */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d0d0d;
+  color: #d4af37;
 }
 
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px 20px;
+  background-color: #000;
+  border-bottom: 1px solid #222;
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  width: 100px;
-  height: auto;
+header img {
+  height: 70px;
+  margin-bottom: 10px;
 }
 
 h1 {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
-  color: #2c3e50;
+  font-family: 'Angelica', cursive;
+  font-size: 36px;
+  color: #d4af37;
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #d4af37;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .tagline {
-  font-size: 1.2rem;
-  color: #7f8c8d;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  color: #bfa25a;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .hero-image img {
-  width: 100%;
-  height: auto;
+  width: 50%;
+  max-height: 200px;
+  object-fit: cover;
   display: block;
-  margin-bottom: 2rem;
+  margin: 20px auto 30px;
+  border-radius: 12px;
+  border: 2px solid #d4af37;
 }
 
 .icon-buttons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 10px;
 }
 
 .icon-buttons img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s;
 }
 
 .icon-buttons img:hover {
@@ -60,168 +76,229 @@ h1 {
 }
 
 .popup {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: #1a1a1a;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 20px;
   z-index: 1000;
-  display: none;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 8px;
+  min-width: 300px;
+  color: #d4af37;
 }
 
-.close-btn {
-  background: none;
+.popup .close-btn {
+  float: right;
+  background: transparent;
   border: none;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  font-size: 20px;
+  color: #d4af37;
   cursor: pointer;
+}
+
+#calcDisplay {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  color: #d4af37;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .calc-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 10px;
 }
 
 .calc-btn {
-  padding: 1rem;
-  background-color: #ecf0f1;
-  border: none;
-  font-size: 1.2rem;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #111;
+  color: #d4af37;
+  border: 1px solid #333;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.calc-btn:hover {
-  background-color: #d0d7db;
-}
-
-.todo-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .todo-container input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: calc(100% - 50px);
+  padding: 8px;
+  background: #000;
+  color: #d4af37;
+  border: 1px solid #333;
+  border-radius: 8px;
 }
 
 .todo-container button {
-  padding: 0.5rem;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  background: #111;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 8px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.todo-container button:hover {
-  background-color: #2c80b4;
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#taskList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+#taskList li span.completed {
+  text-decoration: line-through;
+  color: #777;
 }
 
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;      
+  gap: 20px;
+  padding: 20px;
+  overflow-x: visible;    
 }
 
 .card {
   perspective: 1000px;
+  flex: 0 0 calc(33.33% - 20px); 
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%; 
+  }
+}
+
+.card-front img {
   width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #d4af37;
+}
+
+
+.card {
+  perspective: 1000px;
+  flex: 0 0 calc(33.33% - 20px); 
+  max-width: 100%;
+  height: 300px; 
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex: 0 0 calc(50% - 20px); 
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%; 
+  }
 }
 
 .card-inner {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  overflow: hidden;
+  width: 80%;
+  height: 90%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
 }
 
+
 .card:hover .card-inner {
-  background-color: rgba(0, 0, 0, 0.3); /* затемняем карточку */
-  transform: scale(1.05); /* увеличиваем карточку для эффекта "выпрыгивания" */
+  transform: rotateY(180deg);
 }
 
 .card-front, .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 .card-front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.3s ease;
+  border: 2px solid #d4af37;
 }
 
 .card-back {
-  background-color: rgba(0, 0, 0, 0.5); /* затемнение фона */
-  color: #fff; /* текст белого цвета */
+  background-color: #111;
+  color: #d4af37;
+  transform: rotateY(180deg);
   display: flex;
-  align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding: 1rem;
-}
-
-.card:hover .card-back {
-  opacity: 1; /* показываем текст при наведении */
-}
-
-footer {
-  background-color: #2c3e50;
-  color: #fff;
+  align-items: center;
   text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 2rem;
+  padding: 20px;
+  font-size: 16px;
+  border: 2px solid #d4af37;
 }
 
 .footer-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 10px;
+  padding: 20px;
+  background: #111;
+  border-top: 1px solid #333;
 }
 
 .footer-buttons button {
-  background-color: #3498db;
-  color: white;
-  padding: 0.5rem 1rem;
+  background: transparent;
   border: none;
-  border-radius: 4px;
+  color: #d4af37;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.footer-buttons button:hover {
-  background-color: #2c80b4;
 }
 
 .footer-content {
   display: none;
-  padding: 1rem;
-  background-color: #ecf0f1;
-  margin: 1rem;
-  border-radius: 8px;
+  background: #1a1a1a;
+  color: #d4af37;
+  text-align: center;
+  padding: 20px;
+  animation: slideUp 0.5s ease-out;
+}
+
+.footer-content.active {
+  display: block;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
