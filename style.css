@@ -279,7 +279,7 @@ h2 {
 
   .card {
     flex: 0 0 100%;
-    width: 90%;
+    width: 100%;
     max-width: 100%;
   }
 
