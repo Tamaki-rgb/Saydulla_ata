@@ -311,5 +311,34 @@ h2 {
     width: 90%; /* или 100% по желанию */
   }
 }
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* <-- переместил медиазапрос сюда, ПРАВИЛЬНО */
+@media (max-width: 768px) {
+  .card-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    width: 90%; /* или 100% если хочешь во всю ширину */
+    max-width: 100%;
+  }
+
+  .card-inner {
+    width: 100%;
+  }
+}
+
 
 }
