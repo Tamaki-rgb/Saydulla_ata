@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -162,7 +163,6 @@ h2 {
 }
 
 .card-grid {
-  align-items: center;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;      
@@ -170,26 +170,61 @@ h2 {
   padding: 20px;
   overflow-x: visible;    
 }
+
 .card {
-  position: relative;
-  flex: 0 0 calc(33.33% - 20px);
-  max-width: calc(33.33% - 20px);
   perspective: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 0 0 calc(33.33% - 20px); 
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%; 
+  }
+}
+
+.card-front img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #d4af37;
+}
+
+
+.card {
+  perspective: 1000px;
+  flex: 0 0 calc(33.33% - 20px); 
+  max-width: 100%;
+  height: 300px; 
   box-sizing: border-box;
-  height: 300px;
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex: 0 0 calc(50% - 20px); 
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%; 
+  }
 }
 
 .card-inner {
-  width: 100%;
-  height: 100%;
   position: relative;
+  width: 80%;
+  height: 90%;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
-  transform-origin: center center;
+  transition: transform 0.8s;
 }
+
 
 .card:hover .card-inner {
   transform: rotateY(180deg);
@@ -206,25 +241,26 @@ h2 {
   overflow: hidden;
 }
 
+
 .card-front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: 2px solid #d4af37;
 }
 
 .card-back {
-  transform: rotateY(180deg);
   background-color: #111;
   color: #d4af37;
+  transform: rotateY(180deg);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 20px;
   font-size: 16px;
   border: 2px solid #d4af37;
 }
-
-
 
 .footer-buttons {
   display: flex;
