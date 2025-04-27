@@ -50,6 +50,7 @@ h2 {
   max-height: 200px;
   object-fit: cover;
   display: block;
+  aspect-ratio: 16 / 9
   margin: 20px auto 30px;
   border-radius: 12px;
   border: 2px solid #d4af37;
