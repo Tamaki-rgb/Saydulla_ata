@@ -225,7 +225,6 @@ h2 {
   transition: transform 0.8s;
 }
 
-
 .card:hover .card-inner {
   transform: rotateY(180deg);
 }
@@ -239,13 +238,15 @@ h2 {
   backface-visibility: hidden;
   border-radius: 10px;
   overflow: hidden;
+  background-size: contain; /* ✅ добавлено */
+  background-repeat: no-repeat; /* ✅ добавлено */
+  background-position: center; /* ✅ добавлено */
 }
 
-
 .card-front img {
-  width: 900%;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* ✅ чтобы не искажались */
   border: 2px solid #d4af37;
 }
 
@@ -261,6 +262,7 @@ h2 {
   font-size: 16px;
   border: 2px solid #d4af37;
 }
+
 
 .footer-buttons {
   display: flex;
