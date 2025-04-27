@@ -198,6 +198,7 @@ h2 {
 
 
 .card {
+  background-color: transparent;
   perspective: 1000px;
   flex: 0 0 calc(33.33% - 20px); 
   max-width: 100%;
