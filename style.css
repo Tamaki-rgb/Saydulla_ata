@@ -46,15 +46,15 @@ h2 {
 }
 
 .hero-image img {
-  width: 50%;
-  max-height: 200px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  aspect-ratio: 16 / 9
-  margin: 20px auto 30px;
+  margin: 0 auto 30px;
   border-radius: 12px;
   border: 2px solid #d4af37;
 }
+
 
 .icon-buttons {
   position: absolute;
