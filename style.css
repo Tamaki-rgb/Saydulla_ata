@@ -46,7 +46,7 @@ h2 {
 }
 
 .hero-image img {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
