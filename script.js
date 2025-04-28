@@ -15,6 +15,9 @@ function closePopup(id) {
     todoBtn.addEventListener('click', () => {
       todoPopup.style.display = 'block';
     });
+      function clearDisplay() {
+  document.getElementById('calcDisplay').value = '';
+}
   
     
     const display = document.getElementById('calcDisplay');
