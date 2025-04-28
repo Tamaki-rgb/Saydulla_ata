@@ -16,33 +16,40 @@ document.addEventListener('DOMContentLoaded', () => {
     todoPopup.style.display = 'block';
   });
 
-  // ==========================
-  // Работа калькулятора (обновлено)
+ // Функция для очистки дисплея
+function clearDisplay() {
   const display = document.getElementById('calcDisplay');
-  const buttons = document.querySelectorAll('.calc-btn');
+  display.value = '';
+}
 
-  buttons.forEach(button => {
-    const val = button.textContent;
+// Функция для добавления символов на дисплей
+function appendToDisplay(value) {
+  const display = document.getElementById('calcDisplay');
+  display.value += value;
+}
 
-    if (val === 'AC') {
-      button.addEventListener('click', () => {
-        display.value = '';
-      });
-    } else if (val === '=') {
-      button.addEventListener('click', () => {
-        try {
-          display.value = eval(display.value);
-        } catch {
-          display.value = 'Ошибка';
-        }
-      });
-    } else {
-      button.addEventListener('click', () => {
-        display.value += val;
-      });
-    }
-  });
-  // ==========================
+// Функция для расчёта результата
+function calculateResult() {
+  const display = document.getElementById('calcDisplay');
+  try {
+    display.value = eval(display.value);
+  } catch {
+    display.value = 'Ошибка';
+  }
+}
+
+// Навешиваем обработчики на кнопки
+document.querySelectorAll('.calc-btn').forEach(button => {
+  const val = button.textContent;
+
+  if (val === 'AC') {
+    button.addEventListener('click', clearDisplay); // ✅ Теперь вызываем именно функцию clearDisplay
+  } else if (val === '=') {
+    button.addEventListener('click', calculateResult);
+  } else {
+    button.addEventListener('click', () => appendToDisplay(val));
+  }
+});
 
   // Работа списка задач
   const taskInput = document.getElementById('newTask');
