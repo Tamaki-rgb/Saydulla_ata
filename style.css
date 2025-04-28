@@ -303,4 +303,10 @@ h2 {
     transform: translateY(0);
     opacity: 1;
   }
+  grid-template-columns: repeat(4, 1fr);
+.calc-btn-clear {
+  background-color: #8B0000;
+  color: #fff;
+}
+
 }
