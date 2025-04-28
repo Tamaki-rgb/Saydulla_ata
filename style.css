@@ -89,19 +89,9 @@ h2 {
   min-width: 300px;
   color: #d4af37;
 }
-
-.popup .close-btn {
-  float: right;
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  color: #d4af37;
-  cursor: pointer;
-}
 .display-area {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -126,6 +116,35 @@ h2 {
   cursor: pointer;
 }
 
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 кнопки в ряд */
+  gap: 10px;
+}
+
+.calc-btn {
+  padding: 15px;
+  font-size: 18px;
+  background-color: #111;
+  color: #d4af37;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.calc-btn:hover {
+  background-color: #222;
+}
+
+.popup .close-btn {
+  float: right;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #d4af37;
+  cursor: pointer;
+}
 #calcDisplay {
   width: 100%;
   padding: 10px;
@@ -136,35 +155,6 @@ h2 {
   border-radius: 8px;
   margin-bottom: 10px;
 }
-
-.calc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-
-.clear-btn {
-  padding: 10px 15px;
-  background: #8B0000;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-
-.calc-btn {
-  padding: 10px;
-  font-size: 18px;
-  background-color: #111;
-  color: #d4af37;
-  border: 1px solid #333;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .todo-container input {
   width: calc(100% - 50px);
   padding: 8px;
