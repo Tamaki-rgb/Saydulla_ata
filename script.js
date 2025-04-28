@@ -16,42 +16,34 @@ document.addEventListener('DOMContentLoaded', () => {
     todoPopup.style.display = 'block';
   });
 
- // Функция для очистки дисплея
-function clearDisplay() {
+  // === Калькулятор ===
   const display = document.getElementById('calcDisplay');
-  display.value = '';
-}
+  const buttons = document.querySelectorAll('.calc-btn');
+  const clearButton = document.querySelector('.clear-btn');
 
-// Функция для добавления символов на дисплей
-function appendToDisplay(value) {
-  const display = document.getElementById('calcDisplay');
-  display.value += value;
-}
+  buttons.forEach(button => {
+    const value = button.textContent;
 
-// Функция для расчёта результата
-function calculateResult() {
-  const display = document.getElementById('calcDisplay');
-  try {
-    display.value = eval(display.value);
-  } catch {
-    display.value = 'Ошибка';
-  }
-}
+    if (value === '=') {
+      button.addEventListener('click', () => {
+        try {
+          display.value = eval(display.value);
+        } catch {
+          display.value = 'Ошибка';
+        }
+      });
+    } else {
+      button.addEventListener('click', () => {
+        display.value += value;
+      });
+    }
+  });
 
-// Навешиваем обработчики на кнопки
-document.querySelectorAll('.calc-btn').forEach(button => {
-  const val = button.textContent;
+  clearButton.addEventListener('click', () => {
+    display.value = '';
+  });
 
-  if (val === 'AC') {
-    button.addEventListener('click', clearDisplay); // ✅ Теперь вызываем именно функцию clearDisplay
-  } else if (val === '=') {
-    button.addEventListener('click', calculateResult);
-  } else {
-    button.addEventListener('click', () => appendToDisplay(val));
-  }
-});
-
-  // Работа списка задач
+  // === Список задач ===
   const taskInput = document.getElementById('newTask');
   const taskList = document.getElementById('taskList');
 
@@ -77,7 +69,7 @@ document.querySelectorAll('.calc-btn').forEach(button => {
     taskInput.value = '';
   };
 
-  // Работа кнопок футера
+  // === Футер ===
   const footerButtons = document.querySelectorAll('.footer-buttons button');
   footerButtons.forEach(button => {
     button.addEventListener('click', () => {
